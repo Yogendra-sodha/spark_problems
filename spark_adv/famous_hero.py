@@ -1,38 +1,45 @@
 from pyspark.sql import SparkSession, functions as func
-from pyspark.sql.types import StructField, StructType, IntegerType, StringType
+from pyspark.sql.types import StructField, StructType, StringType, IntegerType
 
-spark = SparkSession.Builder().appName("superhero").getOrCreate()
+spark = SparkSession.Builder().appName("famous-hero").getOrCreate()
 
-# Schema
-schema = StructType([
-    StructField("id", IntegerType()),
-    StructField("movie_name", StringType())
-])
+schema = StructType(
+    [StructField("id", IntegerType()), StructField("names", StringType())]
+)
+
+# read names 
+names = spark.read.option("sep", " ").schema(schema).csv("file:///C:/SparkCourse/spark_adv/Marvel+Names")
+names.createOrReplaceTempView("hero_names")
+names.printSchema()
+
+# read connections
+conn = spark.read.csv("file:///C:/SparkCourse/spark_adv/Marvel+Graph")
+
+conn = conn.withColumn("id", func.split(func.col("_c0"), " ")[0])\
+        .withColumn("friends", func.size(func.split(func.col("_c0"), " "))-1).select("id","friends")
+conn.createOrReplaceTempView("connection")
+
+# find the famous heroes with most friends 
+grouped_conn = spark.sql("select id, sum(friends) as total from connection group by id order by total desc")
+grouped_conn.show()
+
+# join both to find most famous superhero
+print("Most famous super hero is: ")
+famous_hero = names.filter(func.col("id") == grouped_conn.select("id").first()["id"])
+
+f_hero = famous_hero.select("names").rdd.flatMap(lambda x: x).collect()
+print(f_hero)
+
+# most obscure hero
+obscure_hero = spark.sql("select id, sum(friends) as total from connection group by id having total <= 1 order by total")
+obscure_hero.show()
+obscure_hero.createOrReplaceTempView("obscure")
 
 
-# read marvel names
-names = spark.read.option("sep"," ").schema(schema).csv("file:///C:/SparkCourse/spark_adv/Marvel+Names").cache()
-names.createOrReplaceTempView("names")
+# finding names of obsecure
+obscure_hero = spark.sql("SELECT  n.names FROM obscure as o inner join hero_names as n on n.id = o.id ")
+obscure_hero_names = obscure_hero.rdd.flatMap(lambda x: (x)).collect()
+print(obscure_hero_names)
 
-names.show()
-
-# read hero and count friends size
-connections = spark.read.text("file:///C:/SparkCourse/spark_adv/Marvel+Graph").cache()
-
-frnds_conn = connections.withColumn("id",(func.split(func.col("value")," ")[0])).withColumn("friend_size", func.size(func.split(func.col("value"), " "))-1)
-frnds_conn.createOrReplaceTempView("frnds_conn")
-
-frnds_conn = spark.sql("SELECT cast(frnds_conn.id as INT), sum(friend_size) as total from frnds_conn \
-                       group by frnds_conn.id \
-                       order by total desc limit 1")
-frnds_conn.createOrReplaceTempView("famous")
-
-# selected_id = frnds_conn.select("id").first()["id"]
-
-# famous_hero = names.filter(func.col("id") == selected_id).select("movie_name").first()
-famous_hero = spark.sql("select movie_name from names join famous as f on f.id = names.id")
-
-list_name = famous_hero.select("movie_name")
-list_name.show()
 
 spark.stop()

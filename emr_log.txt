@@ -1,0 +1,452 @@
+[hadoop@ip-172-31-37-197 ~]$ vi main.py
+[hadoop@ip-172-31-37-197 ~]$ spark-submit main.py
+23/12/01 06:20:22 INFO SparkContext: Running Spark version 3.4.1-amzn-2
+23/12/01 06:20:23 INFO ResourceUtils: ==============================================================
+23/12/01 06:20:23 INFO ResourceUtils: No custom resources configured for spark.driver.
+23/12/01 06:20:23 INFO ResourceUtils: ==============================================================
+23/12/01 06:20:23 INFO SparkContext: Submitted application: emr_demo
+23/12/01 06:20:23 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 4, script: , vendor: , memory ->                              name: memory, amount: 9486, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+23/12/01 06:20:23 INFO ResourceProfile: Limiting resource is cpus at 4 tasks per executor
+23/12/01 06:20:23 INFO ResourceProfileManager: Added ResourceProfile id: 0
+23/12/01 06:20:23 INFO SecurityManager: Changing view acls to: hadoop
+23/12/01 06:20:23 INFO SecurityManager: Changing modify acls to: hadoop
+23/12/01 06:20:23 INFO SecurityManager: Changing view acls groups to:
+23/12/01 06:20:23 INFO SecurityManager: Changing modify acls groups to:
+23/12/01 06:20:23 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permis                             sions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+23/12/01 06:20:23 INFO Utils: Successfully started service 'sparkDriver' on port 39951.
+23/12/01 06:20:23 INFO SparkEnv: Registering MapOutputTracker
+23/12/01 06:20:23 INFO SparkEnv: Registering BlockManagerMaster
+23/12/01 06:20:23 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+23/12/01 06:20:23 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+23/12/01 06:20:23 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+23/12/01 06:20:23 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-3f11ca28-f5e9-44f8-9fe7-e76fbdaa9283
+23/12/01 06:20:23 INFO MemoryStore: MemoryStore started with capacity 912.3 MiB
+23/12/01 06:20:23 INFO SparkEnv: Registering OutputCommitCoordinator
+23/12/01 06:20:23 INFO SubResultCacheManager: Sub-result caches are disabled.
+23/12/01 06:20:24 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+23/12/01 06:20:24 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+23/12/01 06:20:24 INFO Utils: Using 50 preallocated executors (minExecutors: 0). Set spark.dynamicAllocation.preallocateExecutors to `false` disable executor pr                             eallocation.
+23/12/01 06:20:24 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at ip-172-31-37-197.us-east-2.compute.internal/172.31.37.197:8032
+23/12/01 06:20:25 INFO Configuration: resource-types.xml not found
+23/12/01 06:20:25 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+23/12/01 06:20:25 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (12288 MB per container)
+23/12/01 06:20:25 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+23/12/01 06:20:25 INFO Client: Setting up container launch context for our AM
+23/12/01 06:20:25 INFO Client: Setting up the launch environment for our AM container
+23/12/01 06:20:25 INFO Client: Preparing resources for our AM container
+23/12/01 06:20:25 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+^CERROR:root:KeyboardInterrupt while sending command.
+Traceback (most recent call last):
+  File "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/usr/lib64/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/hadoop/main.py", line 21, in <module>
+    main()
+  File "/home/hadoop/main.py", line 9, in main
+    spark = SparkSession.builder.appName("emr_demo").getOrCreate()
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/session.py", line 477, in getOrCreate
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py", line 515, in getOrCreate
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py", line 212, in __init__
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py", line 287, in _do_init
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py", line 420, in _initialize_context
+  File "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1586, in __call__
+  File "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+  File "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+  File "/usr/lib64/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+23/12/01 06:20:39 INFO DiskBlockManager: Shutdown hook called
+23/12/01 06:20:39 INFO ShutdownHookManager: Shutdown hook called
+23/12/01 06:20:39 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-6a624e63-7abe-4d1a-b583-5e3fd64daee2/userFiles-e9071433-16f4-4de3-a0a5-d8272076add5
+23/12/01 06:20:39 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-0fe24ed0-2ae7-4b5e-81f2-75dd03f9c73d
+23/12/01 06:20:39 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-6a624e63-7abe-4d1a-b583-5e3fd64daee2
+[hadoop@ip-172-31-37-197 ~]$ spark-submit main.py
+23/12/01 06:20:52 INFO SparkContext: Running Spark version 3.4.1-amzn-2
+23/12/01 06:20:52 INFO ResourceUtils: ==============================================================
+23/12/01 06:20:52 INFO ResourceUtils: No custom resources configured for spark.driver.
+23/12/01 06:20:52 INFO ResourceUtils: ==============================================================
+23/12/01 06:20:52 INFO SparkContext: Submitted application: emr_demo
+23/12/01 06:20:52 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 4, script: , vendor: , memory -> name: memory, amount: 9486, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+23/12/01 06:20:52 INFO ResourceProfile: Limiting resource is cpus at 4 tasks per executor
+23/12/01 06:20:52 INFO ResourceProfileManager: Added ResourceProfile id: 0
+23/12/01 06:20:52 INFO SecurityManager: Changing view acls to: hadoop
+23/12/01 06:20:52 INFO SecurityManager: Changing modify acls to: hadoop
+23/12/01 06:20:52 INFO SecurityManager: Changing view acls groups to:
+23/12/01 06:20:52 INFO SecurityManager: Changing modify acls groups to:
+23/12/01 06:20:52 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+23/12/01 06:20:53 INFO Utils: Successfully started service 'sparkDriver' on port 39153.
+23/12/01 06:20:53 INFO SparkEnv: Registering MapOutputTracker
+23/12/01 06:20:53 INFO SparkEnv: Registering BlockManagerMaster
+23/12/01 06:20:53 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+23/12/01 06:20:53 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+23/12/01 06:20:53 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+23/12/01 06:20:53 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-fb62cff7-47b9-4a1a-8c72-e780192d06a5
+23/12/01 06:20:53 INFO MemoryStore: MemoryStore started with capacity 912.3 MiB
+23/12/01 06:20:53 INFO SparkEnv: Registering OutputCommitCoordinator
+23/12/01 06:20:53 INFO SubResultCacheManager: Sub-result caches are disabled.
+23/12/01 06:20:53 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+23/12/01 06:20:53 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+23/12/01 06:20:53 INFO Utils: Using 50 preallocated executors (minExecutors: 0). Set spark.dynamicAllocation.preallocateExecutors to `false` disable executor preallocation.
+23/12/01 06:20:53 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at ip-172-31-37-197.us-east-2.compute.internal/172.31.37.197:8032
+23/12/01 06:20:54 INFO Configuration: resource-types.xml not found
+23/12/01 06:20:54 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+23/12/01 06:20:54 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (12288 MB per container)
+23/12/01 06:20:54 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+23/12/01 06:20:54 INFO Client: Setting up container launch context for our AM
+23/12/01 06:20:54 INFO Client: Setting up the launch environment for our AM container
+23/12/01 06:20:54 INFO Client: Preparing resources for our AM container
+23/12/01 06:20:54 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+23/12/01 06:21:05 INFO Client: Uploading resource file:/mnt/tmp/spark-7813ee73-e3a7-4cee-bded-93f2e2c407e8/__spark_libs__1891069836390840329.zip -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/__spark_libs__1891069836390840329.zip
+23/12/01 06:21:06 INFO Client: Uploading resource file:/etc/spark/conf.dist/hive-site.xml -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/hive-site.xml
+23/12/01 06:21:06 INFO Client: Uploading resource file:/etc/hudi/conf.dist/hudi-defaults.conf -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/hudi-defaults.conf
+23/12/01 06:21:06 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/pyspark.zip
+23/12/01 06:21:06 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/py4j-0.10.9.7-src.zip
+23/12/01 06:21:06 INFO Client: Uploading resource file:/mnt/tmp/spark-7813ee73-e3a7-4cee-bded-93f2e2c407e8/__spark_conf__79028798662411035.zip -> hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/hadoop/.sparkStaging/application_1701411309109_0002/__spark_conf__.zip
+23/12/01 06:21:07 INFO SecurityManager: Changing view acls to: hadoop
+23/12/01 06:21:07 INFO SecurityManager: Changing modify acls to: hadoop
+23/12/01 06:21:07 INFO SecurityManager: Changing view acls groups to:
+23/12/01 06:21:07 INFO SecurityManager: Changing modify acls groups to:
+23/12/01 06:21:07 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+23/12/01 06:21:07 INFO Client: Submitting application application_1701411309109_0002 to ResourceManager
+23/12/01 06:21:07 INFO YarnClientImpl: Submitted application application_1701411309109_0002
+23/12/01 06:21:08 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:08 INFO Client:
+         client token: N/A
+         diagnostics: AM container is launched, waiting for AM container to Register with RM
+         ApplicationMaster host: N/A
+         ApplicationMaster RPC port: -1
+         queue: default
+         start time: 1701411667295
+         final status: UNDEFINED
+         tracking URL: http://ip-172-31-37-197.us-east-2.compute.internal:20888/proxy/application_1701411309109_0002/
+         user: hadoop
+23/12/01 06:21:09 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:10 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:11 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:12 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:13 INFO Client: Application report for application_1701411309109_0002 (state: ACCEPTED)
+23/12/01 06:21:14 INFO Client: Application report for application_1701411309109_0002 (state: RUNNING)
+23/12/01 06:21:14 INFO Client:
+         client token: N/A
+         diagnostics: N/A
+         ApplicationMaster host: 172.31.35.255
+         ApplicationMaster RPC port: -1
+         queue: default
+         start time: 1701411667295
+         final status: UNDEFINED
+         tracking URL: http://ip-172-31-37-197.us-east-2.compute.internal:20888/proxy/application_1701411309109_0002/
+         user: hadoop
+23/12/01 06:21:14 INFO YarnClientSchedulerBackend: Application application_1701411309109_0002 has started running.
+23/12/01 06:21:14 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39935.
+23/12/01 06:21:14 INFO NettyBlockTransferService: Server created on ip-172-31-37-197.us-east-2.compute.internal:39935
+23/12/01 06:21:14 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+23/12/01 06:21:14 INFO BlockManager: external shuffle service port = 7337
+23/12/01 06:21:14 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-37-197.us-east-2.compute.internal, 39935, None)
+23/12/01 06:21:14 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-37-197.us-east-2.compute.internal:39935 with 912.3 MiB RAM, BlockManagerId(driver, ip-172-31-37-197.us-east-2.compute.internal, 39935, None)
+23/12/01 06:21:14 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-37-197.us-east-2.compute.internal, 39935, None)
+23/12/01 06:21:14 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-37-197.us-east-2.compute.internal, 39935, None)
+23/12/01 06:21:14 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> ip-172-31-37-197.us-east-2.compute.internal, PROXY_URI_BASES -> http://ip-172-31-37-197.us-east-2.compute.internal:20888/proxy/application_1701411309109_0002), /proxy/application_1701411309109_0002
+23/12/01 06:21:14 INFO SingleEventLogFileWriter: Logging events to hdfs:/var/log/spark/apps/application_1701411309109_0002.inprogress
+23/12/01 06:21:15 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+23/12/01 06:21:15 INFO Utils: Using 50 preallocated executors (minExecutors: 0). Set spark.dynamicAllocation.preallocateExecutors to `false` disable executor preallocation.
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /jobs: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /jobs/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /jobs/job: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /jobs/job/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/stage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/stage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/pool: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/pool/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /storage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /storage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /storage/rdd: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /storage/rdd/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /environment: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /environment/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /executors: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /executors/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /executors/threadDump: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /executors/threadDump/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /static: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /api: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /jobs/job/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /stages/stage/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /metrics/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+Session Intiated....
+23/12/01 06:21:15 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+23/12/01 06:21:15 INFO SharedState: Warehouse path is 'hdfs://ip-172-31-37-197.us-east-2.compute.internal:8020/user/spark/warehouse'.
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /SQL: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /SQL/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /SQL/execution: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /SQL/execution/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:15 INFO ServerInfo: Adding filter to /static/sql: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+23/12/01 06:21:18 INFO ClientConfigurationFactory: Set initial getObject socket timeout to 2000 ms.
+23/12/01 06:21:18 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.35.255:34250) with ID 3,  ResourceProfileId 0
+23/12/01 06:21:18 INFO ExecutorMonitor: New executor 3 has registered (new total is 1)
+23/12/01 06:21:19 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-35-255.us-east-2.compute.internal:40781 with 4.8 GiB RAM, BlockManagerId(3, ip-172-31-35-255.us-east-2.compute.internal, 40781, None)
+23/12/01 06:21:19 INFO InMemoryFileIndex: It took 35 ms to list leaf files for 1 paths.
+23/12/01 06:21:19 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+23/12/01 06:21:22 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.47.135:55498) with ID 1,  ResourceProfileId 0
+23/12/01 06:21:22 INFO ExecutorMonitor: New executor 1 has registered (new total is 2)
+23/12/01 06:21:22 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.33.124:44634) with ID 2,  ResourceProfileId 0
+23/12/01 06:21:22 INFO ExecutorMonitor: New executor 2 has registered (new total is 3)
+23/12/01 06:21:22 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-47-135.us-east-2.compute.internal:37185 with 4.8 GiB RAM, BlockManagerId(1, ip-172-31-47-135.us-east-2.compute.internal, 37185, None)
+23/12/01 06:21:22 INFO FileSourceStrategy: Pushed Filters:
+23/12/01 06:21:22 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0, None)) > 0)
+23/12/01 06:21:22 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-33-124.us-east-2.compute.internal:42915 with 4.8 GiB RAM, BlockManagerId(2, ip-172-31-33-124.us-east-2.compute.internal, 42915, None)
+23/12/01 06:21:23 INFO CodeGenerator: Code generated in 251.417285 ms
+23/12/01 06:21:23 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 422.3 KiB, free 911.9 MiB)
+23/12/01 06:21:23 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 43.1 KiB, free 911.8 MiB)
+23/12/01 06:21:23 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 43.1 KiB, free: 912.3 MiB)
+23/12/01 06:21:23 INFO SparkContext: Created broadcast 0 from csv at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:23 INFO GPLNativeCodeLoader: Loaded native gpl library
+23/12/01 06:21:23 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev 049362b7cf53ff5f739d6b1532457f2c6cd495e8]
+23/12/01 06:21:23 INFO FileSourceScanExec: Planning scan with bin packing, max size: 9418631 bytes, open cost is considered as scanning 4194304 bytes, number of split files: 12, prefetch: false
+23/12/01 06:21:23 INFO FileSourceScanExec: relation: None, fileSplitsInPartitionHistogram: Vector((1 fileSplits,12))
+23/12/01 06:21:23 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:23 INFO DAGScheduler: Got job 0 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+23/12/01 06:21:23 INFO DAGScheduler: Final stage: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0)
+23/12/01 06:21:23 INFO DAGScheduler: Parents of final stage: List()
+23/12/01 06:21:23 INFO DAGScheduler: Missing parents: List()
+23/12/01 06:21:23 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+23/12/01 06:21:23 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 15.3 KiB, free 911.8 MiB)
+23/12/01 06:21:23 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.7 KiB, free 911.8 MiB)
+23/12/01 06:21:23 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 7.7 KiB, free: 912.3 MiB)
+23/12/01 06:21:23 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1592
+23/12/01 06:21:23 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+23/12/01 06:21:23 INFO YarnScheduler: Adding task set 0.0 with 1 tasks resource profile 0
+23/12/01 06:21:23 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 0, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:24 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 7.7 KiB, free: 4.8 GiB)
+23/12/01 06:21:25 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 43.1 KiB, free: 4.8 GiB)
+23/12/01 06:21:26 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2793 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (1/1)
+23/12/01 06:21:26 INFO YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool
+23/12/01 06:21:26 INFO DAGScheduler: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0) finished in 3.006 s
+23/12/01 06:21:26 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+23/12/01 06:21:26 INFO YarnScheduler: Killing all running tasks in stage 0: Stage finished
+23/12/01 06:21:26 INFO DAGScheduler: Job 0 finished: csv at NativeMethodAccessorImpl.java:0, took 3.090320 s
+23/12/01 06:21:26 INFO CodeGenerator: Code generated in 14.437682 ms
+23/12/01 06:21:26 INFO FileSourceStrategy: Pushed Filters:
+23/12/01 06:21:26 INFO FileSourceStrategy: Post-Scan Filters:
+23/12/01 06:21:26 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 422.3 KiB, free 911.4 MiB)
+23/12/01 06:21:26 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 43.1 KiB, free 911.4 MiB)
+23/12/01 06:21:26 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 43.1 KiB, free: 912.2 MiB)
+23/12/01 06:21:26 INFO SparkContext: Created broadcast 2 from csv at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:26 INFO FileSourceScanExec: Planning scan with bin packing, max size: 9418631 bytes, open cost is considered as scanning 4194304 bytes, number of split files: 12, prefetch: false
+23/12/01 06:21:26 INFO FileSourceScanExec: relation: None, fileSplitsInPartitionHistogram: Vector((1 fileSplits,12))
+File read on cluster......
+23/12/01 06:21:26 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+23/12/01 06:21:26 INFO FileSourceStrategy: Pushed Filters: IsNotNull(Country),IsNotNull(Age),EqualTo(Country,United States of America),EqualTo(Age,25-34 years old)
+23/12/01 06:21:26 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(Country#32),isnotnull(Age#66),(Country#32 = United States of America),(Age#66 = 25-34 years old)
+23/12/01 06:21:27 INFO CodeGenerator: Code generated in 136.406232 ms
+23/12/01 06:21:27 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 422.2 KiB, free 911.0 MiB)
+23/12/01 06:21:27 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 42.8 KiB, free 910.9 MiB)
+23/12/01 06:21:27 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 42.8 KiB, free: 912.2 MiB)
+23/12/01 06:21:27 INFO SparkContext: Created broadcast 3 from take at /home/hadoop/main.py:14
+23/12/01 06:21:27 INFO FileSourceScanExec: Planning scan with bin packing, max size: 9418631 bytes, open cost is considered as scanning 4194304 bytes, number of split files: 12, prefetch: false
+23/12/01 06:21:27 INFO FileSourceScanExec: relation: None, fileSplitsInPartitionHistogram: Vector((1 fileSplits,12))
+23/12/01 06:21:27 INFO SparkContext: Starting job: take at /home/hadoop/main.py:14
+23/12/01 06:21:27 INFO DAGScheduler: Got job 1 (take at /home/hadoop/main.py:14) with 1 output partitions
+23/12/01 06:21:27 INFO DAGScheduler: Final stage: ResultStage 1 (take at /home/hadoop/main.py:14)
+23/12/01 06:21:27 INFO DAGScheduler: Parents of final stage: List()
+23/12/01 06:21:27 INFO DAGScheduler: Missing parents: List()
+23/12/01 06:21:27 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[13] at take at /home/hadoop/main.py:14), which has no missing parents
+23/12/01 06:21:27 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 65.1 KiB, free 910.9 MiB)
+23/12/01 06:21:27 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 21.2 KiB, free 910.8 MiB)
+23/12/01 06:21:27 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 21.2 KiB, free: 912.1 MiB)
+23/12/01 06:21:27 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1592
+23/12/01 06:21:27 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[13] at take at /home/hadoop/main.py:14) (first 15 tasks are for partitions Vector(0))
+23/12/01 06:21:27 INFO YarnScheduler: Adding task set 1.0 with 1 tasks resource profile 0
+23/12/01 06:21:27 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 0, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:27 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 21.2 KiB, free: 4.8 GiB)
+23/12/01 06:21:27 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:27 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 753 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (1/1)
+23/12/01 06:21:27 INFO YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool
+23/12/01 06:21:27 INFO DAGScheduler: ResultStage 1 (take at /home/hadoop/main.py:14) finished in 0.782 s
+23/12/01 06:21:27 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+23/12/01 06:21:27 INFO YarnScheduler: Killing all running tasks in stage 1: Stage finished
+23/12/01 06:21:27 INFO DAGScheduler: Job 1 finished: take at /home/hadoop/main.py:14, took 0.789744 s
+[Row(ResponseId='5', MainBranch='I am a developer by profession', Employment='Employed, full-time', RemoteWork='Hybrid (some remote, some in-person)', CodingActivities='Hobby', EdLevel='Bachelor’s degree (B.A., B.S., B.Eng., etc.)', LearnCode='Other online resources (e.g., videos, blogs, forum);School (i.e., University, College, etc);On the job training', LearnCodeOnline='Technical documentation;Blogs;Stack Overflow;Online books;Video-based Online Courses;Online challenges (e.g., daily or weekly coding challenges)', LearnCodeCoursesCert='NA', YearsCode='8', YearsCodePro='3', DevType='Developer, front-end;Developer, full-stack;Developer, back-end;Developer, desktop or enterprise applications;Developer, QA or test', OrgSize='20 to 99 employees', PurchaseInfluence='I have some influence', BuyNewTool='Start a free trial;Visit developer communities like Stack Overflow', Country='United States of America', Currency='USD\tUnited States dollar', CompTotal='NA', CompFreq='NA', LanguageHaveWorkedWith='C#;HTML/CSS;JavaScript;SQL;Swift;TypeScript', LanguageWantToWorkWith='C#;Elixir;F#;Go;JavaScript;Rust;TypeScript', DatabaseHaveWorkedWith='Cloud Firestore;Elasticsearch;Microsoft SQL Server;Firebase Realtime Database', DatabaseWantToWorkWith='Cloud Firestore;Elasticsearch;Firebase Realtime Database;Redis', PlatformHaveWorkedWith='Firebase;Microsoft Azure', PlatformWantToWorkWith='Firebase;Microsoft Azure', WebframeHaveWorkedWith='Angular;ASP.NET;ASP.NET Core ;jQuery;Node.js', WebframeWantToWorkWith='Angular;ASP.NET Core ;Blazor;Node.js', MiscTechHaveWorkedWith='.NET', MiscTechWantToWorkWith='.NET;Apache Kafka', ToolsTechHaveWorkedWith='npm', ToolsTechWantToWorkWith='Docker;Kubernetes', NEWCollabToolsHaveWorkedWith='Notepad++;Visual Studio;Visual Studio Code;Xcode', NEWCollabToolsWantToWorkWith='Rider;Visual Studio;Visual Studio Code', OpSysProfessional use='Windows', OpSysPersonal use='macOS;Windows', VersionControlSystem='Git;Other (please specify):', VCInteraction='Code editor', VCHostingPersonal use=None, VCHostingProfessional use=None, OfficeStackAsyncHaveWorkedWith='NA', OfficeStackAsyncWantToWorkWith='NA', OfficeStackSyncHaveWorkedWith='Microsoft Teams;Zoom', OfficeStackSyncWantToWorkWith='NA', Blockchain='Unfavorable', NEWSOSites='Collectives on Stack Overflow;Stack Overflow for Teams (private knowledge sharing & collaboration platform for companies);Stack Overflow;Stack Exchange', SOVisitFreq='Multiple times per day', SOAccount='Yes', SOPartFreq='Daily or almost daily', SOComm='Yes, definitely', Age='25-34 years old', Gender='NA', Trans='NA', Sexuality='NA', Ethnicity='NA', Accessibility='NA', MentalHealth='NA', TBranch='No', ICorPM='NA', WorkExp='NA', Knowledge_1='NA', Knowledge_2='NA', Knowledge_3='NA', Knowledge_4='NA', Knowledge_5='NA', Knowledge_6='NA', Knowledge_7='NA', Frequency_1='NA', Frequency_2='NA', Frequency_3='NA', TimeSearching='NA', TimeAnswering='NA', Onboarding='NA', ProfessionalTech='NA', TrueFalse_1='NA', TrueFalse_2='NA', TrueFalse_3='NA', SurveyLength='Too long', SurveyEase='Easy', ConvertedCompYearly='NA'), Row(ResponseId='13', MainBranch='I am a developer by profession', Employment='Employed, full-time', RemoteWork='Hybrid (some remote, some in-person)', CodingActivities='Hobby', EdLevel='Bachelor’s degree (B.A., B.S., B.Eng., etc.)', LearnCode='School (i.e., University, College, etc)', LearnCodeOnline='NA', LearnCodeCoursesCert='NA', YearsCode='12', YearsCodePro='5', DevType='Developer, full-stack', OrgSize='2 to 9 employees', PurchaseInfluence='I have a great deal of influence', BuyNewTool='Visit developer communities like Stack Overflow', Country='United States of America', Currency='USD\tUnited States dollar', CompTotal='65000', CompFreq='Yearly', LanguageHaveWorkedWith='C;HTML/CSS;Rust;SQL;Swift;TypeScript', LanguageWantToWorkWith='Haskell;HTML/CSS;Rust;Swift', DatabaseHaveWorkedWith='PostgreSQL', DatabaseWantToWorkWith='Elasticsearch;Redis', PlatformHaveWorkedWith='AWS', PlatformWantToWorkWith='AWS', WebframeHaveWorkedWith='React.js', WebframeWantToWorkWith='React.js', MiscTechHaveWorkedWith='Torch/PyTorch', MiscTechWantToWorkWith='Torch/PyTorch', ToolsTechHaveWorkedWith='Docker', ToolsTechWantToWorkWith='Docker', NEWCollabToolsHaveWorkedWith='Vim;Visual Studio', NEWCollabToolsWantToWorkWith='Vim;Visual Studio', OpSysProfessional use='macOS', OpSysPersonal use='Linux-based', VersionControlSystem='Git', VCInteraction='Code editor;Command-line', VCHostingPersonal use=None, VCHostingProfessional use=None, OfficeStackAsyncHaveWorkedWith='Jira Work Management;Trello', OfficeStackAsyncWantToWorkWith='Jira Work Management;Trello', OfficeStackSyncHaveWorkedWith='Microsoft Teams;Slack;Zoom', OfficeStackSyncWantToWorkWith='Microsoft Teams;Slack', Blockchain='Favorable', NEWSOSites='Stack Overflow;Stack Exchange', SOVisitFreq='Daily or almost daily', SOAccount="Not sure/can't remember", SOPartFreq='NA', SOComm='Neutral', Age='25-34 years old', Gender='Man', Trans='No', Sexuality='Straight / Heterosexual', Ethnicity='White', Accessibility='None of the above', MentalHealth='None of the above', TBranch='Yes', ICorPM='Independent contributor', WorkExp='5', Knowledge_1='Neither agree nor disagree', Knowledge_2='Disagree', Knowledge_3='Strongly agree', Knowledge_4='Strongly agree', Knowledge_5='Strongly agree', Knowledge_6='Agree', Knowledge_7='Disagree', Frequency_1='Never', Frequency_2='Never', Frequency_3='Never', TimeSearching='30-60 minutes a day', TimeAnswering='Less than 15 minutes a day', Onboarding='Somewhat short', ProfessionalTech='DevOps function;Microservices', TrueFalse_1='Yes', TrueFalse_2='No', TrueFalse_3='Yes', SurveyLength='Appropriate in length', SurveyEase='Easy', ConvertedCompYearly='65000'), Row(ResponseId='15', MainBranch='I am a developer by profession', Employment='Employed, full-time;Independent contractor, freelancer, or self-employed', RemoteWork='Fully remote', CodingActivities='Hobby;Freelance/contract work', EdLevel='Master’s degree (M.A., M.S., M.Eng., MBA, etc.)', LearnCode='Other online resources (e.g., videos, blogs, forum);School (i.e., University, College, etc);On the job training', LearnCodeOnline='Written Tutorials;Stack Overflow;Video-based Online Courses;How-to videos;Coding sessions (live or recorded)', LearnCodeCoursesCert='NA', YearsCode='11', YearsCodePro='5', DevType='Developer, full-stack;Academic researcher;DevOps specialist', OrgSize='5,000 to 9,999 employees', PurchaseInfluence='I have little or no influence', BuyNewTool='Start a free trial;Visit developer communities like Stack Overflow;Ask developers I know/work with', Country='United States of America', Currency='USD\tUnited States dollar', CompTotal='110000', CompFreq='Yearly', LanguageHaveWorkedWith='HTML/CSS;JavaScript;PHP;Python;R;Ruby;Scala', LanguageWantToWorkWith='HTML/CSS;JavaScript;Python;Scala', DatabaseHaveWorkedWith='Elasticsearch;MongoDB;Neo4j;PostgreSQL', DatabaseWantToWorkWith='Elasticsearch;MongoDB;Neo4j;PostgreSQL', PlatformHaveWorkedWith='AWS;DigitalOcean;Heroku', PlatformWantToWorkWith='AWS', WebframeHaveWorkedWith='Django;Flask;jQuery;Node.js;Ruby on Rails;Vue.js', WebframeWantToWorkWith='Django;FastAPI;React.js;Vue.js', MiscTechHaveWorkedWith='Apache Kafka;Apache Spark;NumPy;Pandas;Tidyverse', MiscTechWantToWorkWith='Pandas', ToolsTechHaveWorkedWith='Docker;npm;Yarn', ToolsTechWantToWorkWith='Docker;npm;Yarn', NEWCollabToolsHaveWorkedWith='IPython/Jupyter;Nano;RStudio;Visual Studio Code', NEWCollabToolsWantToWorkWith='Visual Studio Code', OpSysProfessional use='macOS', OpSysPersonal use='macOS', VersionControlSystem='Git', VCInteraction='Code editor;Command-line;Version control hosting service web GUI;Dedicated version control GUI application', VCHostingPersonal use=None, VCHostingProfessional use=None, OfficeStackAsyncHaveWorkedWith='Asana;Jira Work Management;Trello', OfficeStackAsyncWantToWorkWith='Asana;Jira Work Management;Trello', OfficeStackSyncHaveWorkedWith='Microsoft Teams;Slack;Zoom', OfficeStackSyncWantToWorkWith='Slack;Zoom', Blockchain='Indifferent', NEWSOSites='Stack Overflow;Stack Exchange', SOVisitFreq='Daily or almost daily', SOAccount='Yes', SOPartFreq='Less than once per month or monthly', SOComm='Yes, somewhat', Age='25-34 years old', Gender='Man', Trans='No', Sexuality='Straight / Heterosexual', Ethnicity='White', Accessibility='None of the above', MentalHealth='None of the above', TBranch='Yes', ICorPM='Independent contributor', WorkExp='5', Knowledge_1='Agree', Knowledge_2='Neither agree nor disagree', Knowledge_3='Neither agree nor disagree', Knowledge_4='Neither agree nor disagree', Knowledge_5='Neither agree nor disagree', Knowledge_6='Neither agree nor disagree', Knowledge_7='Neither agree nor disagree', Frequency_1='1-2 times a week', Frequency_2='3-5 times a week', Frequency_3='1-2 times a week', TimeSearching='30-60 minutes a day', TimeAnswering='30-60 minutes a day', Onboarding='Somewhat long', ProfessionalTech='DevOps function;Continuous integration (CI) and (more often) continuous delivery;Automated testing', TrueFalse_1='No', TrueFalse_2='Yes', TrueFalse_3='Yes', SurveyLength='Appropriate in length', SurveyEase='Easy', ConvertedCompYearly='110000'), Row(ResponseId='27', MainBranch='I am a developer by profession', Employment='Employed, full-time', RemoteWork='Hybrid (some remote, some in-person)', CodingActivities='I don’t code outside of work', EdLevel='Bachelor’s degree (B.A., B.S., B.Eng., etc.)', LearnCode='Books / Physical media;Other online resources (e.g., videos, blogs, forum);School (i.e., University, College, etc);On the job training;Online Courses or Certification;Colleague', LearnCodeOnline='Technical documentation;Stack Overflow;Online forum', LearnCodeCoursesCert='NA', YearsCode='10', YearsCodePro='5', DevType='Developer, full-stack;Developer, back-end', OrgSize='20 to 99 employees', PurchaseInfluence='I have little or no influence', BuyNewTool='Start a free trial', Country='United States of America', Currency='USD\tUnited States dollar', CompTotal='106960', CompFreq='Yearly', LanguageHaveWorkedWith='Bash/Shell;Groovy;HTML/CSS;Java;JavaScript;SQL', LanguageWantToWorkWith='Bash/Shell;Groovy;HTML/CSS;Java;JavaScript;Python', DatabaseHaveWorkedWith='MongoDB;MySQL', DatabaseWantToWorkWith='MongoDB', PlatformHaveWorkedWith='AWS', PlatformWantToWorkWith='AWS', WebframeHaveWorkedWith='jQuery', WebframeWantToWorkWith='jQuery;React.js', MiscTechHaveWorkedWith='NA', MiscTechWantToWorkWith='NA', ToolsTechHaveWorkedWith='NA', ToolsTechWantToWorkWith='NA', NEWCollabToolsHaveWorkedWith='Atom;IntelliJ;Vim', NEWCollabToolsWantToWorkWith='Atom;IntelliJ;Vim', OpSysProfessional use='macOS', OpSysPersonal use='macOS;Windows', VersionControlSystem='Git', VCInteraction='Code editor;Command-line;Version control hosting service web GUI;Dedicated version control GUI application', VCHostingPersonal use=None, VCHostingProfessional use=None, OfficeStackAsyncHaveWorkedWith='NA', OfficeStackAsyncWantToWorkWith='NA', OfficeStackSyncHaveWorkedWith='Microsoft Teams;Slack;Zoom', OfficeStackSyncWantToWorkWith='Slack', Blockchain='Favorable', NEWSOSites='Stack Overflow;Stack Exchange', SOVisitFreq='Daily or almost daily', SOAccount='Yes', SOPartFreq='A few times per month or weekly', SOComm='Yes, somewhat', Age='25-34 years old', Gender='Man', Trans='No', Sexuality='Straight / Heterosexual', Ethnicity='White;North American', Accessibility='None of the above', MentalHealth='None of the above', TBranch='No', ICorPM='NA', WorkExp='NA', Knowledge_1='NA', Knowledge_2='NA', Knowledge_3='NA', Knowledge_4='NA', Knowledge_5='NA', Knowledge_6='NA', Knowledge_7='NA', Frequency_1='NA', Frequency_2='NA', Frequency_3='NA', TimeSearching='NA', TimeAnswering='NA', Onboarding='NA', ProfessionalTech='NA', TrueFalse_1='NA', TrueFalse_2='NA', TrueFalse_3='NA', SurveyLength='Appropriate in length', SurveyEase='Easy', ConvertedCompYearly='106960'), Row(ResponseId='48', MainBranch='I am a developer by profession', Employment='Employed, full-time', RemoteWork='Fully remote', CodingActivities='Hobby', EdLevel='Bachelor’s degree (B.A., B.S., B.Eng., etc.)', LearnCode='Friend or family member;Other online resources (e.g., videos, blogs, forum);School (i.e., University, College, etc)', LearnCodeOnline='Technical documentation;Blogs;Written Tutorials;Stack Overflow;Online books;Video-based Online Courses;Online challenges (e.g., daily or weekly coding challenges);Online forum;How-to videos;Written-based Online Courses;Interactive tutorial', LearnCodeCoursesCert='NA', YearsCode='6', YearsCodePro='5', DevType='Developer, full-stack;Developer, back-end', OrgSize='1,000 to 4,999 employees', PurchaseInfluence='I have little or no influence', BuyNewTool='Start a free trial;Visit developer communities like Stack Overflow;Ask developers I know/work with', Country='United States of America', Currency='USD\tUnited States dollar', CompTotal='135000', CompFreq='Yearly', LanguageHaveWorkedWith='Java;JavaScript;PHP;SQL;TypeScript', LanguageWantToWorkWith='C++;Go', DatabaseHaveWorkedWith='Cassandra;MySQL', DatabaseWantToWorkWith='NA', PlatformHaveWorkedWith='NA', PlatformWantToWorkWith='NA', WebframeHaveWorkedWith='Angular;Angular.js;jQuery', WebframeWantToWorkWith='NA', MiscTechHaveWorkedWith='NA', MiscTechWantToWorkWith='NA', ToolsTechHaveWorkedWith='Docker;Homebrew;Kubernetes;npm;Yarn', ToolsTechWantToWorkWith='NA', NEWCollabToolsHaveWorkedWith='CLion;IntelliJ;PhpStorm', NEWCollabToolsWantToWorkWith='NA', OpSysProfessional use='macOS', OpSysPersonal use='macOS', VersionControlSystem='Git', VCInteraction='Command-line', VCHostingPersonal use=None, VCHostingProfessional use=None, OfficeStackAsyncHaveWorkedWith='Confluence;Jira Work Management', OfficeStackAsyncWantToWorkWith='NA', OfficeStackSyncHaveWorkedWith='Slack;Zoom', OfficeStackSyncWantToWorkWith='NA', Blockchain='Indifferent', NEWSOSites='Stack Overflow;Stack Exchange', SOVisitFreq='Daily or almost daily', SOAccount='No', SOPartFreq='NA', SOComm='No, not really', Age='25-34 years old', Gender='Woman', Trans='No', Sexuality='Straight / Heterosexual', Ethnicity='White;European;Asian;East Asian', Accessibility='None of the above', MentalHealth='I have an anxiety disorder', TBranch='Yes', ICorPM='Independent contributor', WorkExp='5', Knowledge_1='Strongly agree', Knowledge_2='Agree', Knowledge_3='Disagree', Knowledge_4='Disagree', Knowledge_5='Agree', Knowledge_6='Agree', Knowledge_7='Agree', Frequency_1='1-2 times a week', Frequency_2='6-10 times a week', Frequency_3='1-2 times a week', TimeSearching='30-60 minutes a day', TimeAnswering='30-60 minutes a day', Onboarding='Somewhat long', ProfessionalTech='DevOps function;Microservices;Developer portal or other central places to find tools/services;Automated testing;Observability tools', TrueFalse_1='Yes', TrueFalse_2='Yes', TrueFalse_3='Yes', SurveyLength='Appropriate in length', SurveyEase='Easy', ConvertedCompYearly='135000')]
+23/12/01 06:21:28 INFO FileSourceStrategy: Pushed Filters: IsNotNull(Country),IsNotNull(Age),EqualTo(Country,United States of America),EqualTo(Age,25-34 years old)
+23/12/01 06:21:28 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(Country#32),isnotnull(Age#66),(Country#32 = United States of America),(Age#66 = 25-34 years old)
+23/12/01 06:21:28 INFO CodeGenerator: Code generated in 16.947002 ms
+23/12/01 06:21:28 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 422.2 KiB, free 910.4 MiB)
+23/12/01 06:21:28 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 42.8 KiB, free 910.4 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 42.8 KiB, free: 912.1 MiB)
+23/12/01 06:21:28 INFO SparkContext: Created broadcast 5 from count at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:28 INFO FileSourceScanExec: Planning scan with bin packing, max size: 9418631 bytes, open cost is considered as scanning 4194304 bytes, number of split files: 12, prefetch: false
+23/12/01 06:21:28 INFO FileSourceScanExec: relation: None, fileSplitsInPartitionHistogram: Vector((1 fileSplits,12))
+23/12/01 06:21:28 INFO DAGScheduler: Registering RDD 17 (count at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+23/12/01 06:21:28 INFO DAGScheduler: Got map stage job 2 (count at NativeMethodAccessorImpl.java:0) with 12 output partitions
+23/12/01 06:21:28 INFO DAGScheduler: Final stage: ShuffleMapStage 2 (count at NativeMethodAccessorImpl.java:0)
+23/12/01 06:21:28 INFO DAGScheduler: Parents of final stage: List()
+23/12/01 06:21:28 INFO DAGScheduler: Missing parents: List()
+23/12/01 06:21:28 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[17] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_1_piece0 on ip-172-31-37-197.us-east-2.compute.internal:39935 in memory (size: 7.7 KiB, free: 912.1 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_1_piece0 on ip-172-31-33-124.us-east-2.compute.internal:42915 in memory (size: 7.7 KiB, free: 4.8 GiB)
+23/12/01 06:21:28 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 31.5 KiB, free 910.4 MiB)
+23/12/01 06:21:28 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 15.3 KiB, free 910.4 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 15.3 KiB, free: 912.1 MiB)
+23/12/01 06:21:28 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1592
+23/12/01 06:21:28 INFO DAGScheduler: Submitting 12 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[17] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+23/12/01 06:21:28 INFO YarnScheduler: Adding task set 2.0 with 12 tasks resource profile 0
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 0, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 3) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 1, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 4) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 2, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 5) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 3, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 6) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 4, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 7) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 5, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 6.0 in stage 2.0 (TID 8) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 6, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 7.0 in stage 2.0 (TID 9) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 7, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 8.0 in stage 2.0 (TID 10) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 8, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 9.0 in stage 2.0 (TID 11) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 9, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 10.0 in stage 2.0 (TID 12) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 10, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO TaskSetManager: Starting task 11.0 in stage 2.0 (TID 13) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 11, RACK_LOCAL, 8086 bytes)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_2_piece0 on ip-172-31-37-197.us-east-2.compute.internal:39935 in memory (size: 43.1 KiB, free: 912.1 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 15.3 KiB, free: 4.8 GiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_0_piece0 on ip-172-31-37-197.us-east-2.compute.internal:39935 in memory (size: 43.1 KiB, free: 912.2 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_0_piece0 on ip-172-31-33-124.us-east-2.compute.internal:42915 in memory (size: 43.1 KiB, free: 4.8 GiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-37-197.us-east-2.compute.internal:39935 in memory (size: 21.2 KiB, free: 912.2 MiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-33-124.us-east-2.compute.internal:42915 in memory (size: 21.2 KiB, free: 4.8 GiB)
+23/12/01 06:21:28 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:29 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-35-255.us-east-2.compute.internal:40781 (size: 15.3 KiB, free: 4.8 GiB)
+23/12/01 06:21:29 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-47-135.us-east-2.compute.internal:37185 (size: 15.3 KiB, free: 4.8 GiB)
+23/12/01 06:21:29 INFO TaskSetManager: Finished task 11.0 in stage 2.0 (TID 13) in 1117 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (1/12)
+23/12/01 06:21:30 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 7) in 1233 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (2/12)
+23/12/01 06:21:30 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 4) in 1248 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (3/12)
+23/12/01 06:21:30 INFO TaskSetManager: Finished task 8.0 in stage 2.0 (TID 10) in 1289 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (4/12)
+23/12/01 06:21:30 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-47-135.us-east-2.compute.internal:37185 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:30 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-35-255.us-east-2.compute.internal:40781 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 6.0 in stage 2.0 (TID 8) in 4494 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (5/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 9.0 in stage 2.0 (TID 11) in 4500 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (6/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 4519 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (7/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 5) in 4522 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (8/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 7.0 in stage 2.0 (TID 9) in 4694 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (9/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 10.0 in stage 2.0 (TID 12) in 4694 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (10/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 3) in 4700 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (11/12)
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 6) in 4779 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (12/12)
+23/12/01 06:21:33 INFO YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool
+23/12/01 06:21:33 INFO DAGScheduler: ShuffleMapStage 2 (count at NativeMethodAccessorImpl.java:0) finished in 4.831 s
+23/12/01 06:21:33 INFO DAGScheduler: looking for newly runnable stages
+23/12/01 06:21:33 INFO DAGScheduler: running: Set()
+23/12/01 06:21:33 INFO DAGScheduler: waiting: Set()
+23/12/01 06:21:33 INFO DAGScheduler: failed: Set()
+23/12/01 06:21:33 INFO CodeGenerator: Code generated in 11.033698 ms
+23/12/01 06:21:33 INFO SparkContext: Starting job: count at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:33 INFO DAGScheduler: Got job 3 (count at NativeMethodAccessorImpl.java:0) with 1 output partitions
+23/12/01 06:21:33 INFO DAGScheduler: Final stage: ResultStage 4 (count at NativeMethodAccessorImpl.java:0)
+23/12/01 06:21:33 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 3)
+23/12/01 06:21:33 INFO DAGScheduler: Missing parents: List()
+23/12/01 06:21:33 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[20] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+23/12/01 06:21:33 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 12.9 KiB, free 911.3 MiB)
+23/12/01 06:21:33 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 6.3 KiB, free 911.3 MiB)
+23/12/01 06:21:33 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 6.3 KiB, free: 912.2 MiB)
+23/12/01 06:21:33 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1592
+23/12/01 06:21:33 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[20] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+23/12/01 06:21:33 INFO YarnScheduler: Adding task set 4.0 with 1 tasks resource profile 0
+23/12/01 06:21:33 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 14) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 0, NODE_LOCAL, 7374 bytes)
+23/12/01 06:21:33 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 6.3 KiB, free: 4.8 GiB)
+23/12/01 06:21:33 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 172.31.33.124:44634
+23/12/01 06:21:33 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 14) in 160 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (1/1)
+23/12/01 06:21:33 INFO YarnScheduler: Removed TaskSet 4.0, whose tasks have all completed, from pool
+23/12/01 06:21:33 INFO DAGScheduler: ResultStage 4 (count at NativeMethodAccessorImpl.java:0) finished in 0.170 s
+23/12/01 06:21:33 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+23/12/01 06:21:33 INFO YarnScheduler: Killing all running tasks in stage 4: Stage finished
+23/12/01 06:21:33 INFO DAGScheduler: Job 3 finished: count at NativeMethodAccessorImpl.java:0, took 0.179680 s
+Spark data processing done and selected data count is 4603
+23/12/01 06:21:33 INFO FileSourceStrategy: Pushed Filters: IsNotNull(Country),IsNotNull(Age),EqualTo(Country,United States of America),EqualTo(Age,25-34 years old)
+23/12/01 06:21:33 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(Country#32),isnotnull(Age#66),(Country#32 = United States of America),(Age#66 = 25-34 years old)
+23/12/01 06:21:34 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+23/12/01 06:21:34 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+23/12/01 06:21:34 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized Committer: ENABLED
+23/12/01 06:21:34 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileSystemOptimizedCommitter
+23/12/01 06:21:34 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+23/12/01 06:21:34 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: true
+23/12/01 06:21:34 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+23/12/01 06:21:34 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: true
+23/12/01 06:21:34 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+23/12/01 06:21:34 INFO FileSystemOptimizedCommitter: Nothing to setup as successful task attempt outputs are written directly
+23/12/01 06:21:34 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 422.2 KiB, free 910.9 MiB)
+23/12/01 06:21:34 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 42.8 KiB, free 910.9 MiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 42.8 KiB, free: 912.2 MiB)
+23/12/01 06:21:34 INFO SparkContext: Created broadcast 8 from parquet at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:34 INFO FileSourceScanExec: Planning scan with bin packing, max size: 9418631 bytes, open cost is considered as scanning 4194304 bytes, number of split files: 12, prefetch: false
+23/12/01 06:21:34 INFO FileSourceScanExec: relation: None, fileSplitsInPartitionHistogram: Vector((1 fileSplits,12))
+23/12/01 06:21:34 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+23/12/01 06:21:34 INFO DAGScheduler: Got job 4 (parquet at NativeMethodAccessorImpl.java:0) with 12 output partitions
+23/12/01 06:21:34 INFO DAGScheduler: Final stage: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:0)
+23/12/01 06:21:34 INFO DAGScheduler: Parents of final stage: List()
+23/12/01 06:21:34 INFO DAGScheduler: Missing parents: List()
+23/12/01 06:21:34 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[24] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+23/12/01 06:21:34 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 313.7 KiB, free 910.6 MiB)
+23/12/01 06:21:34 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 111.8 KiB, free 910.5 MiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-37-197.us-east-2.compute.internal:39935 (size: 111.8 KiB, free: 912.0 MiB)
+23/12/01 06:21:34 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1592
+23/12/01 06:21:34 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 5 (MapPartitionsRDD[24] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+23/12/01 06:21:34 INFO YarnScheduler: Adding task set 5.0 with 12 tasks resource profile 0
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 15) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 0, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 1.0 in stage 5.0 (TID 16) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 1, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 2.0 in stage 5.0 (TID 17) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 2, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 3.0 in stage 5.0 (TID 18) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 3, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 4.0 in stage 5.0 (TID 19) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 4, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 5.0 in stage 5.0 (TID 20) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 5, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 6.0 in stage 5.0 (TID 21) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 6, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 7.0 in stage 5.0 (TID 22) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 7, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 8.0 in stage 5.0 (TID 23) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 8, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 9.0 in stage 5.0 (TID 24) (ip-172-31-35-255.us-east-2.compute.internal, executor 3, partition 9, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 10.0 in stage 5.0 (TID 25) (ip-172-31-33-124.us-east-2.compute.internal, executor 2, partition 10, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO TaskSetManager: Starting task 11.0 in stage 5.0 (TID 26) (ip-172-31-47-135.us-east-2.compute.internal, executor 1, partition 11, RACK_LOCAL, 8097 bytes)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 111.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-35-255.us-east-2.compute.internal:40781 (size: 111.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-47-135.us-east-2.compute.internal:37185 (size: 111.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-33-124.us-east-2.compute.internal:42915 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-35-255.us-east-2.compute.internal:40781 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:34 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-47-135.us-east-2.compute.internal:37185 (size: 42.8 KiB, free: 4.8 GiB)
+23/12/01 06:21:36 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 15) in 2492 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (1/12)
+23/12/01 06:21:36 INFO TaskSetManager: Finished task 9.0 in stage 5.0 (TID 24) in 2488 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (2/12)
+23/12/01 06:21:36 INFO TaskSetManager: Finished task 6.0 in stage 5.0 (TID 21) in 2490 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (3/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 7.0 in stage 5.0 (TID 22) in 2536 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (4/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 4.0 in stage 5.0 (TID 19) in 2539 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (5/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 3.0 in stage 5.0 (TID 18) in 2544 ms on ip-172-31-35-255.us-east-2.compute.internal (executor 3) (6/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 10.0 in stage 5.0 (TID 25) in 2562 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (7/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 1.0 in stage 5.0 (TID 16) in 2590 ms on ip-172-31-33-124.us-east-2.compute.internal (executor 2) (8/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 11.0 in stage 5.0 (TID 26) in 2962 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (9/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 5.0 in stage 5.0 (TID 20) in 2971 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (10/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 2.0 in stage 5.0 (TID 17) in 2978 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (11/12)
+23/12/01 06:21:37 INFO TaskSetManager: Finished task 8.0 in stage 5.0 (TID 23) in 3070 ms on ip-172-31-47-135.us-east-2.compute.internal (executor 1) (12/12)
+23/12/01 06:21:37 INFO YarnScheduler: Removed TaskSet 5.0, whose tasks have all completed, from pool
+23/12/01 06:21:37 INFO DAGScheduler: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:0) finished in 3.155 s
+23/12/01 06:21:37 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+23/12/01 06:21:37 INFO YarnScheduler: Killing all running tasks in stage 5: Stage finished
+23/12/01 06:21:37 INFO DAGScheduler: Job 4 finished: parquet at NativeMethodAccessorImpl.java:0, took 3.161558 s
+23/12/01 06:21:37 INFO FileFormatWriter: Start to commit write Job 2de6384d-3b17-4e4d-a7ad-31ecc9d33f33.
+23/12/01 06:21:37 INFO MultipartUploadOutputStream: close closed:false s3://stackoverflowyogi/data_output/_SUCCESS
+23/12/01 06:21:37 INFO FileFormatWriter: Write Job 2de6384d-3b17-4e4d-a7ad-31ecc9d33f33 committed. Elapsed time: 153 ms.
+23/12/01 06:21:37 INFO FileFormatWriter: Finished processing stats for write job 2de6384d-3b17-4e4d-a7ad-31ecc9d33f33.
+Data saved succesfully in parquet format
+23/12/01 06:21:37 INFO SparkContext: Invoking stop() from shutdown hook
+23/12/01 06:21:37 INFO SparkContext: SparkContext is stopping with exitCode 0.
+23/12/01 06:21:37 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-37-197.us-east-2.compute.internal:4040
+23/12/01 06:21:37 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+23/12/01 06:21:37 INFO YarnClientSchedulerBackend: Shutting down all executors
+23/12/01 06:21:37 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+23/12/01 06:21:37 INFO YarnClientSchedulerBackend: YARN client scheduler backend Stopped
+23/12/01 06:21:37 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+23/12/01 06:21:37 INFO MemoryStore: MemoryStore cleared
+23/12/01 06:21:37 INFO BlockManager: BlockManager stopped
+23/12/01 06:21:37 INFO BlockManagerMaster: BlockManagerMaster stopped
+23/12/01 06:21:37 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+23/12/01 06:21:37 INFO SparkContext: Successfully stopped SparkContext
+23/12/01 06:21:37 INFO ShutdownHookManager: Shutdown hook called
+23/12/01 06:21:37 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-7813ee73-e3a7-4cee-bded-93f2e2c407e8/pyspark-84a450c5-f922-493b-86f6-909a6128c56d
+23/12/01 06:21:37 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-640f2199-ddf5-4bad-8796-6c799bf2e3d1
+23/12/01 06:21:37 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-7813ee73-e3a7-4cee-bded-93f2e2c407e8
+[hadoop@ip-172-31-37-197 ~]$
